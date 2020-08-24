@@ -1,0 +1,104 @@
+/* h1 {
+    text-align: center; }  kita tdk pakai ini karena di bootstarp sdh ada utk hal ini */
+/* web bootstarp tetap buka dan lihat type nya di kanan lalu cari contoh contohnya lihat example nya */
+/* utk jumbroton warnanya sdh abu abu dari bootstarpnya 
+  html kita buat relative karena footernya di bawah static jadi kita harus naikan html ke layer atas dan body margin bottom nya sesuai dgn height footer 100px  */
+
+html{
+    position: relative; 
+    }
+
+body {
+    margin-bottom: 90px; 
+    margin-top: 30px; 
+    }
+
+/* buat efect paralax di jumbroton dgn background image , keluar dulu dari folder css lalu get image , background attch ,juga cover itu agar gambarnya diam ,back position utk geser gambar biar pas dan ada 2 nilai x dan y , color utk semua element di jumbroton  */
+.jumbotron{
+    height: 600px;
+    background-image: url(../img/pngtree.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 0 -35px;
+    color: white;
+}
+.jumbotron p{
+    color: silver
+}
+.jumbotron h1, .jumbotron p{
+ text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+} 
+/*  box shadow utk bayangan sama spt text shadow  */
+.jumbotron img{
+    width: 200px;
+    border: 3px solid silver; 
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.5);}
+
+/* semua hr pakai kondisi yg sama jika kita mau bedakan maka
+   bisa di gunakan classnya spt .about hr */
+hr{
+  width: 250px;
+  border-top: 3px solid #666; }
+  
+  /* kita batasi setiap bagian di dlm section tinggi min 600 jika lebih maka akan bisa nambah sendiri , kita tulis tdk pakai titik karena section itu bukan class tapi command html5 kita lebarkan utk contact agar ada jarak dgn footer*/
+section {
+    min-height: 600px;
+}
+/* class pkiri dan pkanan di hilangkan dgn opacity dan hilangkan nya pakai transform translate pd sumbu x dan y , dgn lama transisi nya 1 detik (second)*/ 
+.pkiri, .pkanan {
+    opacity : 0;
+    transform: translate(-50px, 0) rotate(15deg);
+    transition: 3s;
+}
+.pkanan {
+    transform: translate(50px, 0) rotate(-15deg);
+}
+/* kita munculkan lagi dgn opacity 1 dan di posisi semula , setelah ini kita ke js utk munculkannya */ 
+.pkiri.pmuncul, .pkanan.pmuncul {
+    opacity: 1;
+    transform: translate(0.0);
+}
+
+
+.portfolio {
+    background-color: #eee;
+    padding-top: 33px;
+}
+/* utk memunculkan gambar nya pd saat scroll nya sdh sampai di titik tertemtu jadi tdk dari awal
+   opacity 0 itu utk menonaktifkan class thumbnail di html nya dan utk mengaktifkan nilainya 1  */
+.portfolio .thumbnail {
+    opacity: 0 ;
+    transform: translate(0, -40px);
+    transition: .5555s;
+}
+.portfolio .thumbnail.muncul{
+    opacity: 1;
+    transform: translate(0,0);
+}
+    
+
+
+.contact {
+    min-height: 700px;
+    padding-top: 33px; }
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #333;
+    padding-top: 10px;
+}
+
+footer p{
+    color: darkgrey;
+    font-size: 16px;
+}
+footer i{
+    color: salmon;
+}
+
+.about {
+    padding-top: 33px;
+}
